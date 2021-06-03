@@ -24,7 +24,7 @@ class HomeBody extends StatelessWidget {
           loading: (_) => Center(
             child: CircularProgressIndicator(),
           ),
-          loadSuccess: (state) => SingleChildScrollView(
+          configLoadSuccess: (state) => SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
@@ -138,7 +138,19 @@ class HomeBody extends StatelessWidget {
                               itemCount: 10,
                               itemExtent: 100,
                               itemBuilder: (context, index) {
-                                return CategoriesCard();
+                                return CategoriesCard(
+                                  name: state.categories![index].categoryName!
+                                      .getOrCrash(),
+                                  image: state
+                                          .config!.baseUrls!.categoryImageUrl!
+                                          .getOrCrash() +
+                                      '/' +
+                                      state.categories![index].categoryImage!
+                                          .getOrCrash(),
+                                  baseUrl: state
+                                      .config!.baseUrls!.categoryImageUrl!
+                                      .getOrCrash(),
+                                );
                               },
                             ),
                           )

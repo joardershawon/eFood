@@ -158,9 +158,11 @@ class _$HomepageStateTearOff {
     return const _Loading();
   }
 
-  _LoadSuccess loadSuccess(Config? config) {
-    return _LoadSuccess(
+  _ConfigLoadSuccess configLoadSuccess(
+      Config? config, KtList<CategoryItem>? categories) {
+    return _ConfigLoadSuccess(
       config,
+      categories,
     );
   }
 }
@@ -174,14 +176,16 @@ mixin _$HomepageState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Config? config) loadSuccess,
+    required TResult Function(Config? config, KtList<CategoryItem>? categories)
+        configLoadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Config? config)? loadSuccess,
+    TResult Function(Config? config, KtList<CategoryItem>? categories)?
+        configLoadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,14 +193,14 @@ mixin _$HomepageState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_ConfigLoadSuccess value) configLoadSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_ConfigLoadSuccess value)? configLoadSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -258,7 +262,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Config? config) loadSuccess,
+    required TResult Function(Config? config, KtList<CategoryItem>? categories)
+        configLoadSuccess,
   }) {
     return initial();
   }
@@ -268,7 +273,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Config? config)? loadSuccess,
+    TResult Function(Config? config, KtList<CategoryItem>? categories)?
+        configLoadSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -282,7 +288,7 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_ConfigLoadSuccess value) configLoadSuccess,
   }) {
     return initial(this);
   }
@@ -292,7 +298,7 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_ConfigLoadSuccess value)? configLoadSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -345,7 +351,8 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Config? config) loadSuccess,
+    required TResult Function(Config? config, KtList<CategoryItem>? categories)
+        configLoadSuccess,
   }) {
     return loading();
   }
@@ -355,7 +362,8 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Config? config)? loadSuccess,
+    TResult Function(Config? config, KtList<CategoryItem>? categories)?
+        configLoadSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -369,7 +377,7 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_ConfigLoadSuccess value) configLoadSuccess,
   }) {
     return loading(this);
   }
@@ -379,7 +387,7 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_ConfigLoadSuccess value)? configLoadSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -394,34 +402,40 @@ abstract class _Loading implements HomepageState {
 }
 
 /// @nodoc
-abstract class _$LoadSuccessCopyWith<$Res> {
-  factory _$LoadSuccessCopyWith(
-          _LoadSuccess value, $Res Function(_LoadSuccess) then) =
-      __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({Config? config});
+abstract class _$ConfigLoadSuccessCopyWith<$Res> {
+  factory _$ConfigLoadSuccessCopyWith(
+          _ConfigLoadSuccess value, $Res Function(_ConfigLoadSuccess) then) =
+      __$ConfigLoadSuccessCopyWithImpl<$Res>;
+  $Res call({Config? config, KtList<CategoryItem>? categories});
 
   $ConfigCopyWith<$Res>? get config;
 }
 
 /// @nodoc
-class __$LoadSuccessCopyWithImpl<$Res> extends _$HomepageStateCopyWithImpl<$Res>
-    implements _$LoadSuccessCopyWith<$Res> {
-  __$LoadSuccessCopyWithImpl(
-      _LoadSuccess _value, $Res Function(_LoadSuccess) _then)
-      : super(_value, (v) => _then(v as _LoadSuccess));
+class __$ConfigLoadSuccessCopyWithImpl<$Res>
+    extends _$HomepageStateCopyWithImpl<$Res>
+    implements _$ConfigLoadSuccessCopyWith<$Res> {
+  __$ConfigLoadSuccessCopyWithImpl(
+      _ConfigLoadSuccess _value, $Res Function(_ConfigLoadSuccess) _then)
+      : super(_value, (v) => _then(v as _ConfigLoadSuccess));
 
   @override
-  _LoadSuccess get _value => super._value as _LoadSuccess;
+  _ConfigLoadSuccess get _value => super._value as _ConfigLoadSuccess;
 
   @override
   $Res call({
     Object? config = freezed,
+    Object? categories = freezed,
   }) {
-    return _then(_LoadSuccess(
+    return _then(_ConfigLoadSuccess(
       config == freezed
           ? _value.config
           : config // ignore: cast_nullable_to_non_nullable
               as Config?,
+      categories == freezed
+          ? _value.categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as KtList<CategoryItem>?,
     ));
   }
 
@@ -439,42 +453,50 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$HomepageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.config);
+class _$_ConfigLoadSuccess implements _ConfigLoadSuccess {
+  const _$_ConfigLoadSuccess(this.config, this.categories);
 
   @override
   final Config? config;
+  @override
+  final KtList<CategoryItem>? categories;
 
   @override
   String toString() {
-    return 'HomepageState.loadSuccess(config: $config)';
+    return 'HomepageState.configLoadSuccess(config: $config, categories: $categories)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadSuccess &&
+        (other is _ConfigLoadSuccess &&
             (identical(other.config, config) ||
-                const DeepCollectionEquality().equals(other.config, config)));
+                const DeepCollectionEquality().equals(other.config, config)) &&
+            (identical(other.categories, categories) ||
+                const DeepCollectionEquality()
+                    .equals(other.categories, categories)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(config);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(config) ^
+      const DeepCollectionEquality().hash(categories);
 
   @JsonKey(ignore: true)
   @override
-  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
-      __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
+  _$ConfigLoadSuccessCopyWith<_ConfigLoadSuccess> get copyWith =>
+      __$ConfigLoadSuccessCopyWithImpl<_ConfigLoadSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Config? config) loadSuccess,
+    required TResult Function(Config? config, KtList<CategoryItem>? categories)
+        configLoadSuccess,
   }) {
-    return loadSuccess(config);
+    return configLoadSuccess(config, categories);
   }
 
   @override
@@ -482,11 +504,12 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Config? config)? loadSuccess,
+    TResult Function(Config? config, KtList<CategoryItem>? categories)?
+        configLoadSuccess,
     required TResult orElse(),
   }) {
-    if (loadSuccess != null) {
-      return loadSuccess(config);
+    if (configLoadSuccess != null) {
+      return configLoadSuccess(config, categories);
     }
     return orElse();
   }
@@ -496,9 +519,9 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_ConfigLoadSuccess value) configLoadSuccess,
   }) {
-    return loadSuccess(this);
+    return configLoadSuccess(this);
   }
 
   @override
@@ -506,21 +529,23 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
-    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_ConfigLoadSuccess value)? configLoadSuccess,
     required TResult orElse(),
   }) {
-    if (loadSuccess != null) {
-      return loadSuccess(this);
+    if (configLoadSuccess != null) {
+      return configLoadSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class _LoadSuccess implements HomepageState {
-  const factory _LoadSuccess(Config? config) = _$_LoadSuccess;
+abstract class _ConfigLoadSuccess implements HomepageState {
+  const factory _ConfigLoadSuccess(
+      Config? config, KtList<CategoryItem>? categories) = _$_ConfigLoadSuccess;
 
   Config? get config => throw _privateConstructorUsedError;
+  KtList<CategoryItem>? get categories => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
+  _$ConfigLoadSuccessCopyWith<_ConfigLoadSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
