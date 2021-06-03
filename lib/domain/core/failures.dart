@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:kt_dart/collection.dart';
 part 'failures.freezed.dart';
 
 @freezed
@@ -23,4 +24,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidPhone({
     @required T? failedValue,
   }) = InvalidPhone<T>;
+  const factory ValueFailure.invalidList({
+    @required T? failedValue,
+  }) = InvalidList<T>;
 }

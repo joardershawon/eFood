@@ -30,19 +30,19 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(SignUpPageRoute.name, path: '/'),
-        _i1.RouteConfig(HomePageRoute.name, path: '/home-page')
+        _i1.RouteConfig(SignUpPageRoute.name, path: '/sign-up-page'),
+        _i1.RouteConfig(HomePageRoute.name, path: '/')
       ];
 }
 
 class SignUpPageRoute extends _i1.PageRouteInfo {
-  const SignUpPageRoute() : super(name, path: '/');
+  const SignUpPageRoute() : super(name, path: '/sign-up-page');
 
   static const String name = 'SignUpPageRoute';
 }
 
 class HomePageRoute extends _i1.PageRouteInfo {
-  const HomePageRoute() : super(name, path: '/home-page');
+  const HomePageRoute() : super(name, path: '/');
 
   static const String name = 'HomePageRoute';
 }

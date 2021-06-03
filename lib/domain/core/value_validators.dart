@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_application_1/domain/core/failures.dart';
+import 'package:kt_dart/kt.dart';
 
 Either<ValueFailure<String>, String> validateMaxStringLength(
   String input,
@@ -60,3 +61,15 @@ Either<ValueFailure<String>, String> validatePhoneNumber(
     );
   }
 }
+
+// Either<ValueFailure<KtList<T>>, KtList<T>> validateList<T>(
+//   KtList<T> input,
+// ) {
+//   if (input.size.isFinite) {
+//     return right(input);
+//   } else {
+//     return left(
+//       ValueFailure.invalidList(failedValue: input),
+//     );
+//   }
+// }
