@@ -194,9 +194,10 @@ abstract class _BaseUrls implements BaseUrls {
 class _$ConfigTearOff {
   const _$ConfigTearOff();
 
-  _Config call({RestaurantName? restaurantName}) {
+  _Config call({RestaurantName? restaurantName, BaseUrls? baseUrls}) {
     return _Config(
       restaurantName: restaurantName,
+      baseUrls: baseUrls,
     );
   }
 }
@@ -207,6 +208,7 @@ const $Config = _$ConfigTearOff();
 /// @nodoc
 mixin _$Config {
   RestaurantName? get restaurantName => throw _privateConstructorUsedError;
+  BaseUrls? get baseUrls => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ConfigCopyWith<Config> get copyWith => throw _privateConstructorUsedError;
@@ -216,7 +218,9 @@ mixin _$Config {
 abstract class $ConfigCopyWith<$Res> {
   factory $ConfigCopyWith(Config value, $Res Function(Config) then) =
       _$ConfigCopyWithImpl<$Res>;
-  $Res call({RestaurantName? restaurantName});
+  $Res call({RestaurantName? restaurantName, BaseUrls? baseUrls});
+
+  $BaseUrlsCopyWith<$Res>? get baseUrls;
 }
 
 /// @nodoc
@@ -230,13 +234,29 @@ class _$ConfigCopyWithImpl<$Res> implements $ConfigCopyWith<$Res> {
   @override
   $Res call({
     Object? restaurantName = freezed,
+    Object? baseUrls = freezed,
   }) {
     return _then(_value.copyWith(
       restaurantName: restaurantName == freezed
           ? _value.restaurantName
           : restaurantName // ignore: cast_nullable_to_non_nullable
               as RestaurantName?,
+      baseUrls: baseUrls == freezed
+          ? _value.baseUrls
+          : baseUrls // ignore: cast_nullable_to_non_nullable
+              as BaseUrls?,
     ));
+  }
+
+  @override
+  $BaseUrlsCopyWith<$Res>? get baseUrls {
+    if (_value.baseUrls == null) {
+      return null;
+    }
+
+    return $BaseUrlsCopyWith<$Res>(_value.baseUrls!, (value) {
+      return _then(_value.copyWith(baseUrls: value));
+    });
   }
 }
 
@@ -245,7 +265,10 @@ abstract class _$ConfigCopyWith<$Res> implements $ConfigCopyWith<$Res> {
   factory _$ConfigCopyWith(_Config value, $Res Function(_Config) then) =
       __$ConfigCopyWithImpl<$Res>;
   @override
-  $Res call({RestaurantName? restaurantName});
+  $Res call({RestaurantName? restaurantName, BaseUrls? baseUrls});
+
+  @override
+  $BaseUrlsCopyWith<$Res>? get baseUrls;
 }
 
 /// @nodoc
@@ -260,12 +283,17 @@ class __$ConfigCopyWithImpl<$Res> extends _$ConfigCopyWithImpl<$Res>
   @override
   $Res call({
     Object? restaurantName = freezed,
+    Object? baseUrls = freezed,
   }) {
     return _then(_Config(
       restaurantName: restaurantName == freezed
           ? _value.restaurantName
           : restaurantName // ignore: cast_nullable_to_non_nullable
               as RestaurantName?,
+      baseUrls: baseUrls == freezed
+          ? _value.baseUrls
+          : baseUrls // ignore: cast_nullable_to_non_nullable
+              as BaseUrls?,
     ));
   }
 }
@@ -273,14 +301,16 @@ class __$ConfigCopyWithImpl<$Res> extends _$ConfigCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Config extends _Config {
-  const _$_Config({this.restaurantName}) : super._();
+  const _$_Config({this.restaurantName, this.baseUrls}) : super._();
 
   @override
   final RestaurantName? restaurantName;
+  @override
+  final BaseUrls? baseUrls;
 
   @override
   String toString() {
-    return 'Config(restaurantName: $restaurantName)';
+    return 'Config(restaurantName: $restaurantName, baseUrls: $baseUrls)';
   }
 
   @override
@@ -289,13 +319,17 @@ class _$_Config extends _Config {
         (other is _Config &&
             (identical(other.restaurantName, restaurantName) ||
                 const DeepCollectionEquality()
-                    .equals(other.restaurantName, restaurantName)));
+                    .equals(other.restaurantName, restaurantName)) &&
+            (identical(other.baseUrls, baseUrls) ||
+                const DeepCollectionEquality()
+                    .equals(other.baseUrls, baseUrls)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(restaurantName);
+      const DeepCollectionEquality().hash(restaurantName) ^
+      const DeepCollectionEquality().hash(baseUrls);
 
   @JsonKey(ignore: true)
   @override
@@ -304,11 +338,14 @@ class _$_Config extends _Config {
 }
 
 abstract class _Config extends Config {
-  const factory _Config({RestaurantName? restaurantName}) = _$_Config;
+  const factory _Config({RestaurantName? restaurantName, BaseUrls? baseUrls}) =
+      _$_Config;
   const _Config._() : super._();
 
   @override
   RestaurantName? get restaurantName => throw _privateConstructorUsedError;
+  @override
+  BaseUrls? get baseUrls => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ConfigCopyWith<_Config> get copyWith => throw _privateConstructorUsedError;

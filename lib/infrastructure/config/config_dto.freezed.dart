@@ -20,9 +20,10 @@ ConfigDto _$ConfigDtoFromJson(Map<String, dynamic> json) {
 class _$ConfigDtoTearOff {
   const _$ConfigDtoTearOff();
 
-  _ConfigDto call({String? restaurant_name}) {
+  _ConfigDto call({String? restaurant_name, BaseUrlsDto? base_urls}) {
     return _ConfigDto(
       restaurant_name: restaurant_name,
+      base_urls: base_urls,
     );
   }
 
@@ -36,7 +37,9 @@ const $ConfigDto = _$ConfigDtoTearOff();
 
 /// @nodoc
 mixin _$ConfigDto {
-  String? get restaurant_name => throw _privateConstructorUsedError;
+  String? get restaurant_name =>
+      throw _privateConstructorUsedError; // ignore: non_constant_identifier_names
+  BaseUrlsDto? get base_urls => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +51,9 @@ mixin _$ConfigDto {
 abstract class $ConfigDtoCopyWith<$Res> {
   factory $ConfigDtoCopyWith(ConfigDto value, $Res Function(ConfigDto) then) =
       _$ConfigDtoCopyWithImpl<$Res>;
-  $Res call({String? restaurant_name});
+  $Res call({String? restaurant_name, BaseUrlsDto? base_urls});
+
+  $BaseUrlsDtoCopyWith<$Res>? get base_urls;
 }
 
 /// @nodoc
@@ -62,13 +67,29 @@ class _$ConfigDtoCopyWithImpl<$Res> implements $ConfigDtoCopyWith<$Res> {
   @override
   $Res call({
     Object? restaurant_name = freezed,
+    Object? base_urls = freezed,
   }) {
     return _then(_value.copyWith(
       restaurant_name: restaurant_name == freezed
           ? _value.restaurant_name
           : restaurant_name // ignore: cast_nullable_to_non_nullable
               as String?,
+      base_urls: base_urls == freezed
+          ? _value.base_urls
+          : base_urls // ignore: cast_nullable_to_non_nullable
+              as BaseUrlsDto?,
     ));
+  }
+
+  @override
+  $BaseUrlsDtoCopyWith<$Res>? get base_urls {
+    if (_value.base_urls == null) {
+      return null;
+    }
+
+    return $BaseUrlsDtoCopyWith<$Res>(_value.base_urls!, (value) {
+      return _then(_value.copyWith(base_urls: value));
+    });
   }
 }
 
@@ -78,7 +99,10 @@ abstract class _$ConfigDtoCopyWith<$Res> implements $ConfigDtoCopyWith<$Res> {
           _ConfigDto value, $Res Function(_ConfigDto) then) =
       __$ConfigDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String? restaurant_name});
+  $Res call({String? restaurant_name, BaseUrlsDto? base_urls});
+
+  @override
+  $BaseUrlsDtoCopyWith<$Res>? get base_urls;
 }
 
 /// @nodoc
@@ -93,12 +117,17 @@ class __$ConfigDtoCopyWithImpl<$Res> extends _$ConfigDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? restaurant_name = freezed,
+    Object? base_urls = freezed,
   }) {
     return _then(_ConfigDto(
       restaurant_name: restaurant_name == freezed
           ? _value.restaurant_name
           : restaurant_name // ignore: cast_nullable_to_non_nullable
               as String?,
+      base_urls: base_urls == freezed
+          ? _value.base_urls
+          : base_urls // ignore: cast_nullable_to_non_nullable
+              as BaseUrlsDto?,
     ));
   }
 }
@@ -106,17 +135,19 @@ class __$ConfigDtoCopyWithImpl<$Res> extends _$ConfigDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ConfigDto extends _ConfigDto {
-  const _$_ConfigDto({this.restaurant_name}) : super._();
+  const _$_ConfigDto({this.restaurant_name, this.base_urls}) : super._();
 
   factory _$_ConfigDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ConfigDtoFromJson(json);
 
   @override
   final String? restaurant_name;
+  @override // ignore: non_constant_identifier_names
+  final BaseUrlsDto? base_urls;
 
   @override
   String toString() {
-    return 'ConfigDto(restaurant_name: $restaurant_name)';
+    return 'ConfigDto(restaurant_name: $restaurant_name, base_urls: $base_urls)';
   }
 
   @override
@@ -125,13 +156,17 @@ class _$_ConfigDto extends _ConfigDto {
         (other is _ConfigDto &&
             (identical(other.restaurant_name, restaurant_name) ||
                 const DeepCollectionEquality()
-                    .equals(other.restaurant_name, restaurant_name)));
+                    .equals(other.restaurant_name, restaurant_name)) &&
+            (identical(other.base_urls, base_urls) ||
+                const DeepCollectionEquality()
+                    .equals(other.base_urls, base_urls)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(restaurant_name);
+      const DeepCollectionEquality().hash(restaurant_name) ^
+      const DeepCollectionEquality().hash(base_urls);
 
   @JsonKey(ignore: true)
   @override
@@ -145,7 +180,8 @@ class _$_ConfigDto extends _ConfigDto {
 }
 
 abstract class _ConfigDto extends ConfigDto {
-  const factory _ConfigDto({String? restaurant_name}) = _$_ConfigDto;
+  const factory _ConfigDto({String? restaurant_name, BaseUrlsDto? base_urls}) =
+      _$_ConfigDto;
   const _ConfigDto._() : super._();
 
   factory _ConfigDto.fromJson(Map<String, dynamic> json) =
@@ -153,6 +189,8 @@ abstract class _ConfigDto extends ConfigDto {
 
   @override
   String? get restaurant_name => throw _privateConstructorUsedError;
+  @override // ignore: non_constant_identifier_names
+  BaseUrlsDto? get base_urls => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ConfigDtoCopyWith<_ConfigDto> get copyWith =>

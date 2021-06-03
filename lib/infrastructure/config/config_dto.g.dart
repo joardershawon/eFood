@@ -9,12 +9,16 @@ part of 'config_dto.dart';
 _$_ConfigDto _$_$_ConfigDtoFromJson(Map<String, dynamic> json) {
   return _$_ConfigDto(
     restaurant_name: json['restaurant_name'] as String?,
+    base_urls: json['base_urls'] == null
+        ? null
+        : BaseUrlsDto.fromJson(json['base_urls'] as Map<String, dynamic>),
   );
 }
 
 Map<String, dynamic> _$_$_ConfigDtoToJson(_$_ConfigDto instance) =>
     <String, dynamic>{
       'restaurant_name': instance.restaurant_name,
+      'base_urls': instance.base_urls,
     };
 
 _$_BaseUrlsDto _$_$_BaseUrlsDtoFromJson(Map<String, dynamic> json) {

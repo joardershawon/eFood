@@ -21,14 +21,14 @@ abstract class Config with _$Config {
   const Config._();
   const factory Config({
     @required RestaurantName? restaurantName,
-    // @required BaseUrls? baseUrls,
+    @required BaseUrls? baseUrls,
   }) = _Config;
   factory Config.empty() => Config(
         restaurantName: RestaurantName(''),
-        // baseUrls: BaseUrls(
-        //   bannerImageUrl: BannerImageUrl(''),
-        //   categoryImageUrl: CategoryImageUrl(''),
-        //   productImageUrl: ProductImageUrl(''),
-        // ),
+        baseUrls: BaseUrls(
+          bannerImageUrl: BannerImageUrl(''),
+          categoryImageUrl: CategoryImageUrl(''),
+          productImageUrl: ProductImageUrl(''),
+        ),
       );
 }

@@ -11,17 +11,17 @@ abstract class ConfigDto implements _$ConfigDto {
   const factory ConfigDto({
     @required String? restaurant_name,
     // ignore: non_constant_identifier_names
-    // @required BaseUrlsDto? base_urls,
+    @required BaseUrlsDto? base_urls,
   }) = _ConfigDto;
 
   Config toDomain() {
     return Config(
       restaurantName: RestaurantName(restaurant_name),
-      // baseUrls: BaseUrls(
-      //   bannerImageUrl: BannerImageUrl(base_urls!.banner_image_url),
-      //   categoryImageUrl: CategoryImageUrl(base_urls!.category_image_url),
-      //   productImageUrl: ProductImageUrl(base_urls!.product_image_url),
-      // ),
+      baseUrls: BaseUrls(
+        bannerImageUrl: BannerImageUrl(base_urls!.banner_image_url),
+        categoryImageUrl: CategoryImageUrl(base_urls!.category_image_url),
+        productImageUrl: ProductImageUrl(base_urls!.product_image_url),
+      ),
     );
   }
 
