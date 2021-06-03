@@ -15,9 +15,8 @@ class ConfigRepository implements IConfigRepository {
       Uri.parse(ApiPath.configPath),
     );
     var data = jsonDecode(configresponse.body);
-    print(data);
-    var factoredData = await data.map((e) => ConfigDto.fromJson(e).toDomain());
-    print(factoredData);
+    var factoredData = ConfigDto.fromJson(data).toDomain();
+
     return factoredData;
   }
 }

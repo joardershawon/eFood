@@ -20,8 +20,10 @@ class HomepageBloc extends Bloc<HomepageEvent, HomepageState> {
   ) async* {
     yield* event.map(
       started: (e) async* {
+        yield HomepageState.loading();
         final cnfg = await _iConfigRepository.watchAllConfig();
-        print(cnfg);
+        print(cnfg.baseUrls!.bannerImageUrl!.getOrCrash());
+        yield HomepageState.loadSuccess(cnfg);
       },
     );
   }
