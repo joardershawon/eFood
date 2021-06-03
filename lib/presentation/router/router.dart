@@ -7,10 +7,10 @@ import 'package:flutter_application_1/presentation/signUpPage/sign_up_page.dart'
   routes: <AutoRoute>[
     AutoRoute(
       page: SignUpPage,
+      initial: true,
     ),
     AutoRoute(
       page: HomePage,
-      initial: true,
     ),
   ],
 )

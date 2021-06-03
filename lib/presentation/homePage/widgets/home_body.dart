@@ -147,9 +147,6 @@ class HomeBody extends StatelessWidget {
                                       '/' +
                                       state.categories![index].categoryImage!
                                           .getOrCrash(),
-                                  baseUrl: state
-                                      .config!.baseUrls!.categoryImageUrl!
-                                      .getOrCrash(),
                                 );
                               },
                             ),
